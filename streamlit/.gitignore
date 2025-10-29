@@ -1,0 +1,7 @@
+# Fichiers volumineux à ignorer
+*.csv
+*.pkl
+*.h5
+*.zip
+*.tar
+*.gz
