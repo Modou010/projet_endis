@@ -1,0 +1,32 @@
+# === Environnements virtuels ===
+env/
+venv/
+env_enedis/
+.venv/
+
+# === Cache Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# === Données lourdes ===
+*.csv
+*.xlsx
+*.xls
+
+# === Modèles Machine Learning ===
+*.pkl
+*.joblib
+
+# === Streamlit : garder le code, ignorer le cache ===
+.streamlit/
+
+# === IDE et fichiers système ===
+.vscode/
+.idea/
+.DS_Store
+*.log
+*.zip
+*.tar
+*.gz
