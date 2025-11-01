@@ -46,101 +46,6 @@ Le projet couvre toutes les étapes du cycle de la donnée :
 
 ---
 
-## Stack technique
-
-| Domaine | Outils |
-|----------|--------|
-| Langage principal | Python 3.10+ |
-| Data & ML | pandas, numpy, scikit-learn |
-| Visualisation | Plotly Express, Dash |
-| API & déploiement | Flask, gunicorn, Render |
-| Conteneurisation | Docker |
-| Collaboration | GitHub, Taiga (Scrum) |
-
----
-
-## Équipe & rôles
-
-| Membre | Rôle principal | Rôles secondaires |
-|---------|----------------|-------------------|
-| **Nico Dena** | Responsable data & intégration | Modélisation, documentation |
-| **Modou Mboup** | Responsable ML & qualité | Interface, déploiement |
-| **Rina Razafimahefa** | Responsable interface & design | Data, documentation |
-
-> Chaque membre a contribué à plusieurs volets du projet : la répartition est indicative mais la production a été collective et itérative selon les sprints.
-
----
-
-## Organisation agile
-
-- Outil de gestion : [Taiga.io](https://tree.taiga.io/) – Méthode **Scrum**  
-- Backlog structuré en 6 Épics : Data / ML / Interface / Déploiement / Documentation / Gestion  
-- Sprints hebdomadaires (burndown suivi automatiquement)  
-- Revue et rétrospective à chaque fin de sprint  
-
----
-
-## Livrables clés
-
-| Type | Fichier / dossier |
-|-------|-------------------|
-| Dataset final | `data/processed/dpe_full.parquet` |
-| Modèles | `app/model/classification_model.pkl`, `app/model/regression_model.pkl` |
-| Application Dash | `app/app.py` |
-| Documentation technique | `docs/doc_technique.md` |
-| Documentation fonctionnelle | `docs/doc_fonctionnelle.md` |
-| Rapport ML | `docs/rapport_ml.md` |
-| Vidéo démo | 🔗 _[Lien à venir]_ |
-
----
-
-
-## 🛠️ Installation
-
-### Option 1 : Installation locale
-
-```bash
-# Cloner le dépôt
-git clone https://github.com/Modou010/m2_enedis.git
-cd greentech-solutions
-
-# Créer un environnement virtuel
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# ou
-venv\Scripts\activate  # Windows
-
-# Installer les dépendances
-pip install -r requirements.txt
-
-# Lancer l'application Streamlit
-streamlit run app.py
-
-# Dans un autre terminal, lancer l'API FastAPI
-uvicorn api.main:app --reload
-```
-
-### Option 2 : Avec Docker (Recommandé)
-
-```bash
-# Construire et lancer les services
-docker-compose up -d
-
-# Voir les logs
-docker-compose logs -f
-
-# Arrêter les services
-docker-compose down
-```
-
-##  Accès aux services
-
-Une fois lancé :
-
-- **Interface Streamlit** : [http://localhost:8501](http://localhost:8501)
-- **API FastAPI** : [http://localhost:8000](http://localhost:8000)
-- **Documentation API** : [http://localhost:8000/docs](http://localhost:8000/docs)
-
 ##  Structure du projet
 
 ```
@@ -217,6 +122,102 @@ greentech-solutions/
 ```
 <p align="center"><img src="schema_archicture_projet.jpg" alt="Schéma d’architecture du projet" width="80%"></p>
 ```
+---
+
+## Stack technique
+
+| Domaine | Outils |
+|----------|--------|
+| Langage principal | Python 3.10+ |
+| Data & ML | pandas, numpy, scikit-learn |
+| Visualisation | Plotly Express, Streamlit |
+| API & déploiement | FastAPI, unicorn, Render |
+| Conteneurisation | Docker |
+| Collaboration | GitHub, Taiga (Scrum) |
+
+---
+
+## Équipe & rôles
+
+| Membre | Rôle principal | Rôles secondaires |
+|---------|----------------|-------------------|
+| **Nico Dena** | Responsable data & intégration |Ingestion, Modélisation et documentation |
+| **Modou Mboup** | Responsable ML & qualité | Interface, déploiement |
+| **Rina Razafimahefa** | Responsable interface & design | Data, documentation |
+
+> Chaque membre a contribué à plusieurs volets du projet : la répartition est indicative mais la production a été collective et itérative selon les sprints.
+
+---
+
+## Organisation agile
+
+- Outil de gestion : [Taiga.io](https://tree.taiga.io/) – Méthode **Scrum**  
+- Backlog structuré en 6 Épics : Data / ML / Interface / Déploiement / Documentation / Gestion  
+- Sprints hebdomadaires (burndown suivi automatiquement)  
+- Revue et rétrospective à chaque fin de sprint  
+
+---
+
+## Livrables clés
+
+| Type | Fichier / dossier |
+|-------|-------------------|
+| Dataset final | `Data/donnees_ademe_finales_nettoyees_69_final_pret.csv`, `Data/donnees_enedis_69_finales.csv` |
+| Modèles | `streamlit/models/classification_model.pkl`, `streamlit/models/regression_model.pkl` |
+| Application Streamlit | `streamlit/app.py` |
+| Documentation technique | `docs/doc_technique.md` |
+| Documentation fonctionnelle | `docs/doc_fonctionnelle.md` |
+| Rapport ML | `docs/rapport_ml.md` |
+| Vidéo démo | 🔗 _[Lien à venir]_ |
+
+---
+
+
+## 🛠️ Installation
+
+### Option 1 : Installation locale
+
+```bash
+# Cloner le dépôt
+git clone https://github.com/Modou010/m2_enedis.git
+cd greentech-solutions
+
+# Créer un environnement virtuel
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# ou
+venv\Scripts\activate  # Windows
+
+# Installer les dépendances
+pip install -r requirements.txt
+
+# Lancer l'application Streamlit
+streamlit run app.py
+
+# Dans un autre terminal, lancer l'API FastAPI
+uvicorn api.main:app --reload
+```
+
+### Option 2 : Avec Docker (Recommandé)
+
+```bash
+# Construire et lancer les services
+docker-compose up -d
+
+# Voir les logs
+docker-compose logs -f
+
+# Arrêter les services
+docker-compose down
+```
+
+##  Accès aux services
+
+Une fois lancé :
+
+- **Interface Streamlit** : [http://localhost:8501](http://localhost:8501)
+- **API FastAPI** : [http://localhost:8000](http://localhost:8000)
+- **Documentation API** : [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## Rafraîchissement des données
 
