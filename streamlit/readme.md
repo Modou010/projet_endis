@@ -1,4 +1,7 @@
-<h1 style="color:green;">GreenTech Solutions - Dashboard Énergétique Rhône</h1>
+<h1 style="color:#2ecc71; font-weight:bold;">
+ GreenTech Solutions - Dashboard Énergétique Rhône
+</h1>
+
 
 Application complète d'analyse énergétique basée sur les données DPE (Diagnostic de Performance Énergétique) et Enedis de la région Rhône-Alpes.
 
