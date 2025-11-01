@@ -5,22 +5,22 @@ Application complète d'analyse énergétique basée sur les données DPE (Diagn
 ## 🚀 Fonctionnalités
 
 ### Interface Utilisateur (Streamlit)
-- 📊 **Tableau de bord** : Visualisation interactive des données DPE
-- 📈 **Analyse** : Analyses statistiques approfondies
-- ⚡ **Enedis** : Intégration des données de consommation Enedis
-- 🔮 **Prédiction** : Prédiction d'étiquette DPE et de coûts énergétiques
-- ⚖️ **Comparaison** : Comparaison entre logements
-- 🔄 **Rafraîchissement des données** : Mise à jour automatique depuis l'API ADEME
-- 🎯 **Réentraînement des modèles** : Réentraînement des modèles ML avec nouvelles données
+-  **Tableau de bord** : Visualisation interactive des données DPE
+-  **Analyse** : Analyses statistiques approfondies
+-  **Enedis** : Intégration des données de consommation Enedis
+-  **Prédiction** : Prédiction d'étiquette DPE et de coûts énergétiques
+-  API : mise à disposition de données et de modèles à travers une API
+-  **Rafraîchissement des données** : Mise à jour automatique depuis l'API ADEME
+-  **Réentraînement des modèles** : Réentraînement des modèles ML avec nouvelles données
 
 ### API REST (FastAPI)
-- 🔌 **Prédictions individuelles** : Endpoint `/predict`
-- 📦 **Prédictions par lot** : Endpoint `/predict/batch`
-- 📊 **Métriques des modèles** : Endpoint `/models/metrics`
-- 🔄 **Rafraîchissement des données** : Endpoint `/data/refresh`
-- 🎯 **Réentraînement** : Endpoint `/models/retrain`
+-  **Prédictions individuelles** : Endpoint `/predict`
+-  **Prédictions par lot** : Endpoint `/predict/batch`
+-  **Métriques des modèles** : Endpoint `/models/metrics`
+-  **Rafraîchissement des données** : Endpoint `/data/refresh`
+-  **Réentraînement** : Endpoint `/models/retrain`
 
-## 📋 Prérequis
+##  Prérequis
 
 - Python 3.10+
 - Docker et Docker Compose (optionnel mais recommandé)
@@ -31,7 +31,7 @@ Application complète d'analyse énergétique basée sur les données DPE (Diagn
 
 ```bash
 # Cloner le dépôt
-git clone <votre-repo>
+git clone https://github.com/Modou010/m2_enedis.git
 cd greentech-solutions
 
 # Créer un environnement virtuel
@@ -63,7 +63,7 @@ docker-compose logs -f
 docker-compose down
 ```
 
-## 🌐 Accès aux services
+##  Accès aux services
 
 Une fois lancé :
 
@@ -71,7 +71,7 @@ Une fois lancé :
 - **API FastAPI** : [http://localhost:8000](http://localhost:8000)
 - **Documentation API** : [http://localhost:8000/docs](http://localhost:8000/docs)
 
-## 📁 Structure du projet
+##  Structure du projet
 
 ```
 greentech-solutions/
@@ -109,10 +109,10 @@ greentech-solutions/
 └── README.md
 ```
 
-## 🔄 Rafraîchissement des données
+## Rafraîchissement des données
 
 ### Via l'interface Streamlit
-1. Aller dans "🔄 Rafraîchir données"
+1. Aller dans " Rafraîchir données"
 2. Choisir le mode (nouveaux DPE uniquement ou rechargement complet)
 3. Cliquer sur "Lancer le rafraîchissement"
 
@@ -125,10 +125,10 @@ curl -X POST http://localhost:8000/data/refresh
 curl -X POST http://localhost:8000/data/refresh?full_reload=true
 ```
 
-## 🎯 Réentraînement des modèles
+## Réentraînement des modèles
 
 ### Via l'interface Streamlit
-1. Aller dans "🎯 Réentraîner modèles"
+1. Aller dans " Réentraîner modèles"
 2. Configurer les hyperparamètres (optionnel)
 3. Cliquer sur "Lancer l'entraînement"
 
@@ -197,24 +197,15 @@ docker run -p 8000:8000 \
   greentech-solutions
 ```
 
-### Pousser vers un registry Docker
-```bash
-# Tag l'image
-docker tag greentech-solutions:latest votre-registry/greentech-solutions:latest
-
-# Push vers le registry
-docker push votre-registry/greentech-solutions:latest
-```
-
 ## 📊 Modèles de Machine Learning
 
 ### Modèle de Classification
 - **Algorithme** : Random Forest Classifier
 - **Objectif** : Prédire l'étiquette DPE (A, B, C, D, E, F, G)
-- **Performance** : ~98% accuracy
+- **Performance** : ~96% accuracy
 
 ### Modèle de Régression
-- **Algorithme** : Random Forest Regressor
+- **Algorithme** : DecisionTree Regressor
 - **Objectif** : Prédire le coût total des 5 usages (€/an)
 - **Performance** : R² > 0.97
 
@@ -230,29 +221,19 @@ docker push votre-registry/greentech-solutions:latest
 - `conso_refroidissement_ef`
 - `type_energie_recodee`
 
-## 🔒 Sécurité
-
-Pour un déploiement en production :
-
-1. **Changer les CORS** dans `api/main.py`
-2. **Ajouter une authentification** (JWT, OAuth2)
-3. **Utiliser HTTPS**
-4. **Limiter le rate limiting**
-5. **Ajouter des logs structurés**
-
 ## 🤝 Contribution
 
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request, ou à nous laisser un message
 
 ## 📄 Licence
 
 Ce projet est sous licence MIT.
 
-## 📞 Contact
+## Contact
 
-Pour toute question, contactez l'équipe GreenTech Solutions.
+Pour toute question, contactez l'équipe GreenTech Solutions : franckdena@gmail.com, mboupmodou05@gmail.com, n.razafimahefa@univ-lyon2.fr
 
 ---
 
 **Version** : 1.0.0  
-**Dernière mise à jour** : 2024
+**Dernière mise à jour** : 2025
