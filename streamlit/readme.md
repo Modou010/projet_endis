@@ -75,37 +75,74 @@ Une fois lancé :
 
 ```
 greentech-solutions/
-├── app.py                          # Application Streamlit principale
-├── pages/                          # Pages Streamlit
-│   ├── welcome.py
-│   ├── home.py
-│   ├── analysis.py
-│   ├── enedis.py
-│   ├── prediction.py
-│   ├── compare.py
-│   ├── about.py
-│   ├── refresh_data.py            # Nouvelle page
-│   └── retrain_models.py          # Nouvelle page
-├── utils/                         # Modules utilitaires
-│   ├── data_loader.py
-│   ├── model_utils.py
-│   ├── data_refresher.py          # Nouveau module
-│   └── model_trainer.py           # Nouveau module
-├── api/                           # API FastAPI
-│   └── main.py                    # Nouveau fichier
-├── models/                        # Modèles ML sauvegardés
-│   ├── classification_model.pkl
-│   ├── regression_model.pkl
-│   └── metrics.json
-├── data/                          # Données
-│   ├── donnees_ademe_finales_nettoyees_69_final_pret.csv
-│   ├── adresses-69.csv
-│   └── metadata.json
-├── Dockerfile                     # Nouveau fichier
-├── docker-compose.yml             # Nouveau fichier
-├── docker-entrypoint.sh           # Nouveau fichier
+├── Data/                                               # Données provenant des Apis
+├   ├──data_ademe_existants_69.csv
+│   ├──data_ademe_existants_69.csv
+│   ├──donnees_enedis_69_.csv                           # Application Streamlit principale
+├── Notebooks/
+├   ├──1_extraction_preparation_donnees.ipynb
+│   ├──2_exploration_donnees.ipynb
+│   ├──3_classification_regression.ipynb
+├── streamlit/
+|   ├── app.py                          # Application Streamlit principale
+|   ├── pages/                          # Pages Streamlit
+|   │   ├── welcome.py
+|   │   ├── home.py
+|   │   ├── analysis.py
+|   │   ├── enedis.py
+|   │   ├── prediction.py
+|   │   ├── compare.py
+|   │   ├── about.py
+|   │   ├── refresh_data.py            
+|   │   └── retrain_models.py          
+|   ├── utils/                         # Modules utilitaires
+|   │   ├── data_loader.py
+|   │   ├── model_utils.py
+|   │   ├── data_refresher.py          
+|   │   └── model_trainer.py           
+|   ├── api/                           # API FastAPI
+|   │   └── main.py                    
+|   ├── models/                        # Modèles ML sauvegardés
+|   │   ├── classification_model.pkl
+|   │   ├── regression_model.pkl
+|   │   └── metrics.json
+|   ├── data/                          # Données
+|   │   ├── donnees_ademe_finales_nettoyees_69_final_pret.csv
+|   │   ├──donnees_enedis_69_finales.csv
+|   │   ├── adresses-69.csv
+|   │   └── metadata.json
+|   ├── app.py                          # Application Streamlit principale
+|   ├── pages/                          # Pages Streamlit
+|   │   ├── welcome.py
+|   │   ├── home.py
+|   │   ├── analysis.py
+|   │   ├── enedis.py
+|   │   ├── prediction.py
+|   │   ├── compare.py
+|   │   ├── about.py
+|   │   ├── refresh_data.py            
+|   │   └── retrain_models.py          
+|   ├── utils/                         # Modules utilitaires
+|   │   ├── data_loader.py
+|   │   ├── model_utils.py
+|   │   ├── data_refresher.py          
+|   │   └── model_trainer.py           
+|   ├── api/                           # API FastAPI
+|   │   └── main.py                    
+|   ├── models/                        # Modèles ML sauvegardés
+|   │   ├── classification_model.pkl
+|   │   ├── regression_model.pkl
+|   │   └── metrics.json
+|   ├── data/                          # Données application
+|   │   ├── donnees_ademe_finales_nettoyees_69_final_pret.csv
+|   │   ├──donnees_enedis_69_finales.csv
+|   │   ├── adresses-69.csv
+|   │   └── metadata.json
+├── Dockerfile                     
+├── docker-compose.yml             
+├── docker-entrypoint.sh           
 ├── requirements.txt
-├── .dockerignore                  # Nouveau fichier
+├── .dockerignore                  
 └── README.md
 ```
 
