@@ -149,7 +149,7 @@ greentech-solutions/
 └── README.md
 ```
 <p align="center">
-  <img src="architecture_projet_enedis.svg" alt="architecture du projet" width="70%">
+  <img src="schema_architecture_projet.jpg" alt="architecture du projet" width="70%">
 </p>
 
 ```
