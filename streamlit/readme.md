@@ -148,6 +148,11 @@ greentech-solutions/
 ├── .dockerignore                  
 └── README.md
 ```
+<p align="center">
+  <img src="images/schema_energetique.svg" alt="architecture du projet" width="70%">
+</p>
+
+```
 
 ## Rafraîchissement des données
 
