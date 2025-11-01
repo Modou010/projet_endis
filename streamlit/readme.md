@@ -148,8 +148,7 @@ greentech-solutions/
 ├── .dockerignore                  
 └── README.md
 ```
-<p align="center"><img src="schema_archicture_projet.jpeg" alt="Architecture du projet" width="70%"></p>
-
+<p align="center"><img src="schema_archicture_projet.jpg" alt="Schéma d’architecture du projet" width="80%"></p>
 ```
 
 ## Rafraîchissement des données
