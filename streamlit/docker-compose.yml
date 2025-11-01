@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # Service Streamlit (Interface utilisateur)
+  streamlit:
+    build: .
+    container_name: greentech-streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - SERVICE_MODE=streamlit
+      - PYTHONUNBUFFERED=1
+    command: streamlit run app.py --server.address=0.0.0.0 --server.port=8501
+    restart: unless-stopped
+    networks:
+      - greentech-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Service FastAPI (API)
+  api:
+    build: .
+    container_name: greentech-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - SERVICE_MODE=api
+      - PYTHONUNBUFFERED=1
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+    networks:
+      - greentech-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  greentech-network:
+    driver: bridge
+
+volumes:
+  data:
+  models:
+  logs:
