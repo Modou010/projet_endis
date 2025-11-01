@@ -1,33 +1,23 @@
-# === Environnements virtuels ===
-env/
-venv/
-env_enedis/
-.venv/
-
-# === Cache Python ===
+# Fichiers Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# === Données lourdes ===
+# Fichiers de données volumineuses
+streamlit/data/*.csv
 *.csv
-*.xlsx
-*.xls
 
-# === Modèles Machine Learning ===
+# Modèles ML (trop volumineux pour Git)
+streamlit/models/*.pkl
 *.pkl
-*.joblib
 
-# === Streamlit : garder le code, ignorer le cache ===
-streamlit/data/
-streamlit/models/
+# Environnement virtuel
+venv/
+env/
+.venv/
 
-# === IDE et fichiers système ===
+# IDE
 .vscode/
 .idea/
-.DS_Store
-*.log
-*.zip
-*.tar
-*.gz
+*.swp
