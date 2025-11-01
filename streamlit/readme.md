@@ -122,7 +122,7 @@ greentech-solutions/
 ```
 <p align="center"><img src="schema_archicture_projet.jpg" alt="Schéma d’architecture du projet" width="80%"></p>
 ```
----
+
 
 ## Stack technique
 
