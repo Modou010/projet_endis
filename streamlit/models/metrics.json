@@ -1,0 +1,110 @@
+{
+  "classification": {
+    "model_type": "classification",
+    "accuracy": 0.954755436867873,
+    "f1_score": 0.9547214968956723,
+    "train_samples": 304066,
+    "test_samples": 130314,
+    "classes": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+    ],
+    "classification_report": {
+      "A": {
+        "precision": 0.9737241030823648,
+        "recall": 0.9506660088801184,
+        "f1-score": 0.9620569146280579,
+        "support": 2027.0
+      },
+      "B": {
+        "precision": 0.9348436622355364,
+        "recall": 0.9278944434120052,
+        "f1-score": 0.9313560902816639,
+        "support": 5381.0
+      },
+      "C": {
+        "precision": 0.9797435687366869,
+        "recall": 0.9756072688707145,
+        "f1-score": 0.9776710438914721,
+        "support": 49031.0
+      },
+      "D": {
+        "precision": 0.9555715419726136,
+        "recall": 0.9669653839395537,
+        "f1-score": 0.9612347003705598,
+        "support": 39837.0
+      },
+      "E": {
+        "precision": 0.9385707182570175,
+        "recall": 0.9354838709677419,
+        "f1-score": 0.9370247523635461,
+        "support": 22196.0
+      },
+      "F": {
+        "precision": 0.87125,
+        "recall": 0.8612026359143328,
+        "f1-score": 0.8661971830985915,
+        "support": 7284.0
+      },
+      "G": {
+        "precision": 0.9051819184123484,
+        "recall": 0.9006143045195261,
+        "f1-score": 0.9028923347630045,
+        "support": 4558.0
+      },
+      "accuracy": 0.954755436867873,
+      "macro avg": {
+        "precision": 0.9369836446709383,
+        "recall": 0.9312048452148559,
+        "f1-score": 0.9340618599138423,
+        "support": 130314.0
+      },
+      "weighted avg": {
+        "precision": 0.9547213866989358,
+        "recall": 0.954755436867873,
+        "f1-score": 0.9547214968956723,
+        "support": 130314.0
+      }
+    },
+    "feature_importance": {
+      "conso_auxiliaires_ef": 0.04369108136837404,
+      "cout_eclairage": 0.08609265009641119,
+      "conso_5_usages_par_m2_ef": 0.47366554539619604,
+      "conso_5_usages_ef": 0.12923763649484538,
+      "surface_habitable_logement": 0.05548407669752077,
+      "cout_ecs": 0.07664794985474119,
+      "type_batiment": 0.008072299254413154,
+      "conso_ecs_ef": 0.04885510921107097,
+      "conso_refroidissement_ef": 0.002049740889299757,
+      "type_energie_recodee": 0.07620391073712748
+    },
+    "trained_at": "2025-10-31T18:23:55.623018"
+  },
+  "regression": {
+    "model_type": "regression",
+    "r2_score": 0.9603243766190425,
+    "mse": 18162.0845179361,
+    "rmse": 134.76677824277056,
+    "mae": 48.95772082101858,
+    "train_samples": 304066,
+    "test_samples": 130314,
+    "feature_importance": {
+      "conso_auxiliaires_ef": 0.01481407834826261,
+      "cout_eclairage": 0.010801550305752338,
+      "conso_5_usages_par_m2_ef": 0.0035919563230336475,
+      "conso_5_usages_ef": 0.7996116709026924,
+      "surface_habitable_logement": 0.008378453886122112,
+      "cout_ecs": 0.07944894309676577,
+      "type_batiment": 0.014081818778948933,
+      "conso_ecs_ef": 0.039622247749685424,
+      "conso_refroidissement_ef": 0.0004892289722780862,
+      "type_energie_recodee": 0.02916005163645881
+    },
+    "trained_at": "2025-10-31T18:24:04.190165"
+  }
+}

@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import joblib
 import plotly.graph_objects as go
 import plotly.express as px
 from io import BytesIO
@@ -12,35 +13,44 @@ def load_models():
     try:
         # Vérifier que les fichiers existent
         if not os.path.exists('models/classification_model.pkl'):
-            st.error("❌ Fichier 'models/classification_model.pkl' introuvable")
+            st.error(" Fichier 'models/classification_model.pkl' introuvable")
             return None, None
         if not os.path.exists('models/regression_model.pkl'):
-            st.error("❌ Fichier 'models/regression_model.pkl' introuvable")
+            st.error(" Fichier 'models/regression_model.pkl' introuvable")
             return None, None
         
-        # Charger le modèle de classification
+        # Essayer avec joblib d'abord (plus robuste)
         try:
-            with open('models/classification_model.pkl', 'rb') as f:
-                model_classification = pickle.load(f)
-            st.success("✅ Modèle de classification chargé")
-        except Exception as e:
-            st.error(f"❌ Erreur lors du chargement du modèle de classification : {e}")
-            st.info("💡 Essayez de réentraîner et sauvegarder le modèle avec la version actuelle de scikit-learn")
-            return None, None
+            model_classification = joblib.load('models/classification_model.pkl')
+            st.success(" Modèle de classification chargé")
+        except:
+            # Si joblib échoue, essayer avec pickle
+            try:
+                with open('models/classification_model.pkl', 'rb') as f:
+                    model_classification = pickle.load(f, encoding='latin1')
+                st.success(" Modèle de classification chargé ")
+            except Exception as e:
+                st.error(f" Erreur classification : {e}")
+                st.info("💡 Essayez de resauvegarder votre modèle avec joblib.dump() au lieu de pickle.dump()")
+                return None, None
         
         # Charger le modèle de régression
         try:
-            with open('models/regression_model.pkl', 'rb') as f:
-                model_regression = pickle.load(f)
-            st.success("✅ Modèle de régression chargé")
-        except Exception as e:
-            st.error(f"❌ Erreur lors du chargement du modèle de régression : {e}")
-            return None, None
+            model_regression = joblib.load('models/regression_model.pkl')
+            st.success("Modèle de régression chargé ")
+        except:
+            try:
+                with open('models/regression_model.pkl', 'rb') as f:
+                    model_regression = pickle.load(f, encoding='latin1')
+                st.success(" Modèle de régression chargé")
+            except Exception as e:
+                st.error(f" Erreur régression : {e}")
+                return None, None
         
         return model_classification, model_regression
         
     except Exception as e:
-        st.error(f"❌ Erreur générale : {e}")
+        st.error(f" Erreur générale : {e}")
         import traceback
         st.code(traceback.format_exc())
         return None, None
@@ -93,7 +103,7 @@ def show():
     with col3:
         st.metric("📈 R² Score", "0.979", help="Coefficient de détermination de la régression")
     with col4:
-        st.metric("✅ Modèles", "Chargés", delta="Prêts", help="Modèles chargés avec succès")
+        st.metric(" Modèles", "Chargés", delta="Prêts", help="Modèles chargés avec succès")
     
     st.markdown("---")
     
@@ -131,12 +141,6 @@ def show():
                 help="Source d'énergie principale du logement"
             )
             
-            etiquette_ges = st.selectbox(
-                "Étiquette GES",
-                options=['A', 'B', 'C', 'D', 'E', 'F', 'G'],
-                index=3,
-                help="Étiquette d'émissions de gaz à effet de serre"
-            )
         
         with col2:
             st.markdown("##### ⚡ Consommations et coûts")
@@ -188,13 +192,6 @@ def show():
                 step=10.0
             )
             
-            cout_auxiliaires = st.number_input(
-                "Coût auxiliaires (€/an)",
-                min_value=0.0,
-                max_value=1000.0,
-                value=100.0,
-                step=10.0
-            )
         
         with col2:
             cout_eclairage = st.number_input(
@@ -205,17 +202,10 @@ def show():
                 step=5.0
             )
             
-            emission_ges_ecs = st.number_input(
-                "Émissions GES ECS (kg CO₂/an)",
-                min_value=0.0,
-                max_value=5000.0,
-                value=500.0,
-                step=50.0
-            )
         
         # Calculer automatiquement certaines valeurs
         conso_5_usages_ef = conso_5_usages_par_m2 * surface_habitable
-        emission_ges_5_usages = emission_ges_ecs * 5  # Approximation
+        #emission_ges_5_usages = emission_ges_ecs * 5  # Approximation
         
         st.info(f"💡 Consommation totale estimée : **{conso_5_usages_ef:,.0f} kWh/an**")
         
@@ -227,15 +217,11 @@ def show():
                     'conso_auxiliaires_ef': conso_auxiliaires,
                     'cout_eclairage': cout_eclairage,
                     'conso_5_usages_par_m2_ef': conso_5_usages_par_m2,
-                    'emission_ges_ecs': emission_ges_ecs,
                     'conso_5_usages_ef': conso_5_usages_ef,
                     'surface_habitable_logement': surface_habitable,
                     'cout_ecs': cout_ecs,
-                    'cout_auxiliaires': cout_auxiliaires,
                     'type_batiment': type_batiment,
                     'conso_ecs_ef': conso_ecs,
-                    'emission_ges_5_usages': emission_ges_5_usages,
-                    'etiquette_ges': etiquette_ges,
                     'conso_refroidissement_ef': conso_refroidissement,
                     'type_energie_recodee': type_energie
                 }
@@ -259,6 +245,7 @@ def show():
                     
                     # Afficher les résultats
                     st.markdown("---")
+                    st.balloons()
                     st.markdown("### 🎯 Résultats de la prédiction")
                     
                     col1, col2 = st.columns(2)
@@ -370,15 +357,11 @@ def show():
             'conso_auxiliaires_ef': [500],
             'cout_eclairage': [80],
             'conso_5_usages_par_m2_ef': [200],
-            'emission_ges_ecs': [500],
             'conso_5_usages_ef': [20000],
             'surface_habitable_logement': [100],
             'cout_ecs': [300],
-            'cout_auxiliaires': [100],
             'type_batiment': ['maison'],
             'conso_ecs_ef': [2000],
-            'emission_ges_5_usages': [2500],
-            'etiquette_ges': ['D'],
             'conso_refroidissement_ef': [0],
             'type_energie_recodee': ['Electricite']
         }

@@ -176,7 +176,7 @@ def show():
     
     # Charger les images en base64
     img_nico = get_image_base64("assets/nico_profile.jpeg")
-    img_noro = get_image_base64("assets/noro_profile.jpeg")
+    img_noro = get_image_base64("assets/rina_profile.jpeg")
     img_modou = get_image_base64("assets/modou_profile.jpeg")
     
     with col1:
@@ -225,7 +225,7 @@ def show():
                         margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center;">
                 {img_html}
             </div>
-            <h4 style="margin: 1rem 0 0.5rem 0; color: #333;">Noro Razafimahefa</h4>
+            <h4 style="margin: 1rem 0 0.5rem 0; color: #333;">Rina RAZAFIMAHEFA</h4>
             <p style="color: #666; margin: 0.5rem 0;">Data Scientist</p>
             <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;">
             <p style="margin: 0.5rem 0;">
@@ -256,7 +256,7 @@ def show():
                         margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center;">
                 {img_html}
             </div>
-            <h4 style="margin: 1rem 0 0.5rem 0; color: #333;">MBOUP Modou</h4>
+            <h4 style="margin: 1rem 0 0.5rem 0; color: #333;">Modou MBOUP</h4>
             <p style="color: #666; margin: 0.5rem 0;">Data Scientist</p>
             <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;">
             <p style="margin: 0.5rem 0;">

@@ -190,7 +190,7 @@ def show():
         
         st.markdown("""
         <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #9C27B0;">
-            <h4>🔮 Prédiction IA (à venir)</h4>
+            <h4>🔮 Prédiction IA</h4>
             <p>Estimez l'étiquette DPE et les coûts énergétiques d'un logement grâce au machine learning</p>
         </div>
         """, unsafe_allow_html=True)
