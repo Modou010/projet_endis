@@ -1,9 +1,23 @@
-<h1 style="color:#2ecc71; font-weight:bold;">
- GreenTech Solutions - Dashboard Énergétique Rhône
-</h1>
+> _Modélisation et visualisation des performances énergétiques des logements en France_
+>
+> Projet réalisé dans le cadre du Master 2 **SISE – Statistique et Informatique pour la Science des donnéEs (Lyon 2)**  
+> Année universitaire 2025-2026
 
+---
 
-Application complète d'analyse énergétique basée sur les données DPE (Diagnostic de Performance Énergétique) et Enedis de la région Rhône-Alpes.
+## Objectif du projet
+
+L'objectif de **GreenTech Solutions** est de construire une chaîne complète d'analyse et de prédiction à partir des données publiques des **Diagnostics de Performance Énergétique (DPE)**.
+
+Le projet couvre toutes les étapes du cycle de la donnée :
+
+1. **Extraction et nettoyage** des données ADEME (DPE existants & neufs)  
+2. **Analyse exploratoire et modélisation** (classification & régression)  
+3. **Déploiement** d'une application web interactive sous **Dash**  
+4. **Documentation** technique et fonctionnelle, accompagnée d'une **vidéo de démonstration**
+
+---
+
 
 ## 🚀 Fonctionnalités
 
