@@ -1,3 +1,5 @@
+# 💡 GreenTech Solutions
+
 > _Modélisation et visualisation des performances énergétiques des logements en France_
 >
 > Projet réalisé dans le cadre du Master 2 **SISE – Statistique et Informatique pour la Science des donnéEs (Lyon 2)**  
@@ -13,8 +15,8 @@ Le projet couvre toutes les étapes du cycle de la donnée :
 
 1. **Extraction et nettoyage** des données ADEME (DPE existants & neufs)  
 2. **Analyse exploratoire et modélisation** (classification & régression)  
-3. **Déploiement** d'une application web interactive sous **Dash**  
-4. **Documentation** technique et fonctionnelle, accompagnée d'une **vidéo de démonstration**
+3. **Déploiement** d'une application web interactive sous **Streamlit**  
+4. **Documentation** technique et fonctionnelle
 
 ---
 
@@ -41,6 +43,57 @@ Le projet couvre toutes les étapes du cycle de la donnée :
 
 - Python 3.10+
 - Docker et Docker Compose (optionnel mais recommandé)
+
+---
+
+## Stack technique
+
+| Domaine | Outils |
+|----------|--------|
+| Langage principal | Python 3.10+ |
+| Data & ML | pandas, numpy, scikit-learn |
+| Visualisation | Plotly Express, Dash |
+| API & déploiement | Flask, gunicorn, Render |
+| Conteneurisation | Docker |
+| Collaboration | GitHub, Taiga (Scrum) |
+
+---
+
+## Équipe & rôles
+
+| Membre | Rôle principal | Rôles secondaires |
+|---------|----------------|-------------------|
+| **Nico Dena** | Responsable data & intégration | Modélisation, documentation |
+| **Modou Mboup** | Responsable ML & qualité | Interface, déploiement |
+| **Rina Razafimahefa** | Responsable interface & design | Data, documentation |
+
+> Chaque membre a contribué à plusieurs volets du projet : la répartition est indicative mais la production a été collective et itérative selon les sprints.
+
+---
+
+## Organisation agile
+
+- Outil de gestion : [Taiga.io](https://tree.taiga.io/) – Méthode **Scrum**  
+- Backlog structuré en 6 Épics : Data / ML / Interface / Déploiement / Documentation / Gestion  
+- Sprints hebdomadaires (burndown suivi automatiquement)  
+- Revue et rétrospective à chaque fin de sprint  
+
+---
+
+## Livrables clés
+
+| Type | Fichier / dossier |
+|-------|-------------------|
+| Dataset final | `data/processed/dpe_full.parquet` |
+| Modèles | `app/model/classification_model.pkl`, `app/model/regression_model.pkl` |
+| Application Dash | `app/app.py` |
+| Documentation technique | `docs/doc_technique.md` |
+| Documentation fonctionnelle | `docs/doc_fonctionnelle.md` |
+| Rapport ML | `docs/rapport_ml.md` |
+| Vidéo démo | 🔗 _[Lien à venir]_ |
+
+---
+
 
 ## 🛠️ Installation
 
